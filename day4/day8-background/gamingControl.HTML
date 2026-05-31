@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font-family: Arial;
+        }
+        .title{
+            text-align: center;
+            color: aqua;
+        }
+        .Player-card{
+            display: block;
+            background: #222;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .badges{
+            display: inline;
+            background: orange;
+            color: black;
+            padding:3px ;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .Secret-message{
+                display: none;           
+        }
+        .game-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .game-card{
+            background: #222;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Game Zone</h1>
+
+    <!-- block example -->
+    <div class="Player-card">
+        <h2>Player:Shadow : ninja</h2>
+        <p> Level 99 Warrior</p>
+    </div>
+<br>
+    <!-- Inline example -->
+    <div class="badges">
+        <spam class="Badges">Pro</spam>
+        <spam class="Badges">Fast</spam>
+        <spam class="Badges">Leader</spam>  
+    </div>
+
+    <div class="Secret-message">
+        secret Weapon Unlocked
+    </div>
+
+    <div class="game-container">
+
+        <div class="game-card">
+            <h3>Minecraft</h3>
+            <p>Building Adventure</p>
+        </div>
+         <div class="game-card">
+            <h3>Valorant</h3>
+            <p>shooting Adventure</p>
+        </div>
+         <div class="game-card">
+            <h3>FIFA</h3>
+            <p>Building Adventure</p>
+        </div>
+
+    </div>
+</body>
+</html>
