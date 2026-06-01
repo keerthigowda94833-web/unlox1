@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            font-family: Arial;
+            padding: 20px;  
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items:center ;
+            padding: 20px;
+
+            border: 2px solid black;
+        }
+
+        nav a{
+            display: inline;
+            text-decoration: none;
+            color: black;
+            padding: 8px;
+            border:1px solid black;
+            margin-left: 15px;
+        }
+
+        nav a:hover{
+            background-color: black;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .categories{
+            display: flex;
+            gap: 15px;
+            margin-top: 20px; 
+        }
+        .category{
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .category:hover{
+            background-color: black;
+            color: white;
+            transition: 1s;
+        }
+
+        .movies{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+             gap: 30px;
+             margin-top: 20px;
+        }
+
+        .movie{
+            border: 2px solid black;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .movie:hover{
+            transform: scale(1.05);
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Netflix movie category layout -->
+
+    <header>
+        <h1>Movie Zone</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">series</a>
+            <a href="#">mylist</a>
+        </nav>
+    </header>
+
+    <section class="categories">
+
+        <div class="category">Action</div>
+        <div class="category">Comdey</div>
+        <div class="category">Horror</div>
+        <div class="category">Drama</div>
+
+    </section>
+
+    <section class="movies">
+
+        <div class="movie">
+            <h3> one piece</h3>
+        </div>
+
+         <div class="movie">
+            <h3>Avenger</h3>
+        </div>
+
+         <div class="movie">
+            <h3>spider man</h3>
+        </div>
+
+         <div class="movie">
+            <h3>Bat man</h3>
+        </div>
+
+         <div class="movie">
+            <h3>Titanic</h3>
+        </div>
+
+         <div class="movie">
+            <h3>Off campus</h3>
+        </div>
+
+         <div class="movie">
+            <h3>Dhurandhar</h3>
+        </div>
+
+         <div class="movie">
+            <h3>KGF</h3>
+        </div>
+
+    </section>
+
+</body>
+</html>
