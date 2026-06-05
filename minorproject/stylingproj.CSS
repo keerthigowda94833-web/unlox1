@@ -18,7 +18,7 @@ body{
   
 .spend{
             width: 300px;
-            height: 180px;
+            height: 100px;
             text-align: center;
             display: inline-block;
             margin: 100px;
@@ -31,20 +31,34 @@ body{
             align-items: center;
         }
 .spend-separate{
-    color: #663232da;
-   border: 1px solid black;
-   border-radius: 10px;
-    width: 450px;
+    color: #efa5a5;
+   border: 1px solid rgb(212, 93, 93);
+   border-radius: 50px;
+    width: 1fr;
     padding: 20px;
-    background-color: rgba(199, 133, 40, 0.705);
+    background-color: rgba(196, 68, 36, 0.395);
 }
 .spend-chart{
-    color: #302121da;
-    border: 1px solid black;
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+    color: #ddb8b8da;
+    border: 1px solid rgb(161, 44, 44);
     border-radius: 10px;
-    background-color: rgba(235, 206, 112, 0.879);
+    background-color: rgba(183, 46, 22, 0.509);
     margin-top: 20px;
     display: flex;
     justify-content:space-between;
-    width: 1000px;
+    width: 1fr;
+}
+.price{
+    margin-left: 800px;
+    font-weight: bold;
+}
+.amount{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1fr;
 }
