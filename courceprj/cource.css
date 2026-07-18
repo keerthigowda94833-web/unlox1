@@ -1,0 +1,413 @@
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f8fb;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#2563eb;
+color:white;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ffd54f;
+}
+
+.hero{
+height:500px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.search input{
+padding:14px;
+width:320px;
+border:none;
+border-radius:5px;
+}
+
+.search button{
+padding:14px 25px;
+border:none;
+background:#10b981;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+.categories{
+padding:60px;
+text-align:center;
+}
+
+.category-box{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin-top:35px;
+}
+
+.card{
+background:white;
+width:180px;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card i{
+font-size:40px;
+color:#2563eb;
+margin-bottom:15px;
+}
+
+.courses{
+padding:60px;
+text-align:center;
+}
+
+.course-box{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.course{
+background:white;
+width:300px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.course img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.course h3{
+margin:15px;
+}
+
+.course p{
+margin-bottom:10px;
+}
+
+.course h4{
+color:#10b981;
+margin-bottom:15px;
+}
+
+.course button{
+width:90%;
+margin-bottom:20px;
+padding:12px;
+border:none;
+background:#2563eb;
+color:white;
+cursor:pointer;
+border-radius:6px;
+}
+
+.why{
+padding:60px;
+background:white;
+text-align:center;
+}
+
+.why-box{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-top:40px;
+}
+
+.why h3{
+font-size:40px;
+color:#2563eb;
+}
+
+footer{
+background:#1e3a8a;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f8fb;
+}
+
+/* Container */
+
+body > div{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:50px;
+}
+
+/* Course Card */
+
+.course{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+    text-align:center;
+}
+
+.course:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.course img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.course h3{
+    margin:18px 10px 10px;
+    color:#2563eb;
+    font-size:22px;
+}
+
+.course p{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.course h4{
+    color:#10b981;
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.course button{
+    width:85%;
+    padding:12px;
+    margin-bottom:20px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.course button:hover{
+    background:#1e40af;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+body > div{
+    grid-template-columns:1fr;
+    padding:20px;
+}
+
+.course{
+    width:100%;
+}
+
+}
+
+
+                /* about.css */
+
+.about{
+    padding:60px 8%;
+    background:#f4f8fb;
+    text-align:center;
+}
+
+.about h1{
+    color:#2563eb;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.intro{
+    max-width:850px;
+    margin:auto;
+    font-size:18px;
+    line-height:30px;
+    color:#555;
+    margin-bottom:50px;
+}
+
+.about-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.about-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-8px);
+}
+
+.about-card h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.about-card h3{
+    color:#10b981;
+    font-size:32px;
+    margin-top:15px;
+}
+
+.about-card p{
+    color:#555;
+    line-height:25px;
+}
+
+.about-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.about-card li{
+    margin:10px 0;
+    font-size:17px;
+}               
+
+
+/* contact.css. */
+
+.contact{
+    padding:60px 8%;
+    background:#f4f8fb;
+    text-align:center;
+}
+
+.contact h1{
+    font-size:40px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.contact p{
+    color:#666;
+    margin-bottom:40px;
+}
+
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.contact-info,
+.contact-form{
+    background:white;
+    width:420px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.contact-info h2,
+.contact-form h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    text-align:left;
+    margin:15px 0;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.contact-form button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.contact-form button:hover{
+    background:#1e40af;
+}
+
+/* login/signup.css. */
+
