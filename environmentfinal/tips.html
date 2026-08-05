@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSort - Sustainability Tips</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#72796e",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#ccebc7",
+                        "surface-dim": "#d9dad9",
+                        "on-primary-fixed": "#002201",
+                        "secondary": "#4a6549",
+                        "on-tertiary-fixed": "#2e150b",
+                        "on-surface-variant": "#42493e",
+                        "surface-variant": "#e1e3e2",
+                        "secondary-fixed": "#ccebc7",
+                        "tertiary": "#503226",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#6a483b",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9f8",
+                        "surface-tint": "#3b6934",
+                        "background": "#f9f9f8",
+                        "secondary-fixed-dim": "#b0cfad",
+                        "surface": "#f9f9f8",
+                        "primary-fixed": "#bcf0ae",
+                        "on-surface": "#191c1c",
+                        "on-secondary-fixed-variant": "#334d33",
+                        "tertiary-fixed-dim": "#ebbcac",
+                        "on-background": "#191c1c",
+                        "primary": "#154212",
+                        "primary-fixed-dim": "#a1d494",
+                        "inverse-surface": "#2e3131",
+                        "on-secondary-container": "#506b4f",
+                        "on-tertiary-container": "#e7b8a8",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-primary-fixed-variant": "#23501e",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f4f3",
+                        "surface-container-high": "#e7e8e7",
+                        "outline-variant": "#c2c9bb",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f0",
+                        "inverse-primary": "#a1d494",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed-variant": "#603f33",
+                        "on-secondary-fixed": "#07200b",
+                        "primary-container": "#2d5a27",
+                        "surface-container": "#edeeed",
+                        "on-primary-container": "#9dd090"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Work Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Work Sans"],
+                        "label-md": ["Work Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Desktop) -->
+<header class="hidden md:flex flex justify-between items-center w-full px-margin-mobile py-base bg-surface shadow-sm docked full-width top-0 sticky z-40">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">EcoSort</span>
+</div>
+<nav class="flex gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" <a href="home.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" <a href="learn.html">Learn</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" <a href="classify.html">Classify</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" <a href="quiz.html">Quiz</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Tips</a>
+</nav>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</button>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-base bg-surface shadow-sm docked full-width top-0 sticky z-40">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined text-[24px]">eco</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">EcoSort</span>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Hero Section -->
+<section class="mb-xl relative rounded-3xl overflow-hidden shadow-[0_12px_24px_rgba(21,66,18,0.04)] bg-surface-container-low border border-surface-container-highest">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-20" data-alt="A lush, sunlit indoor garden space with modern, minimalist architecture. Sunlight streams through large windows, illuminating a variety of thriving green plants in stylish ceramic pots. The atmosphere is warm, calm, and highly encouraging, perfectly capturing an eco-friendly, modern light-mode lifestyle. Soft green and natural earthy tones dominate the color palette, enhancing the feeling of a clean, healthy environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8VfnKvC_wX3DjNISGJXYiyi7JwLFbYLxzHEl3hfG_mYjJIbSf7IpZMF_m7JDpyqv2wa7cDoGqiUIXyjvsXimQxYPT7xns8Mnmph1qBJBaQmGFqvFIStl2uiHHq7kcSPl2qtNAGQjiF__RkTiNaJl213gHdIrlsteW4Hv2u5JU9t7G1UzPReFPGPSUguMJL4eTX201rqKDL-p-vOJOL9lSyy_f9Y08jmxLTkDpcXUhRsP3HqU-1c-FRw')"></div>
+</div>
+<div class="relative z-10 p-lg md:p-xl flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-1">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-sm">Master Your Impact</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md max-w-2xl">Practical, everyday tips to reduce waste, recycle smarter, and live a more sustainable life. Small actions create monumental change.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:shadow-md transition-all active:scale-95 flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                         Check Local Rules
+                     </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Daily Tips (Accordion) -->
+<div class="md:col-span-7 flex flex-col gap-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-base flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+                    Daily Eco-Habits
+                </h2>
+<div class="bg-surface rounded-xl shadow-[0_8px_16px_rgba(21,66,18,0.03)] border border-surface-variant overflow-hidden">
+<button class="w-full text-left px-md py-sm flex justify-between items-center hover:bg-surface-container-low transition-colors group">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">The 5-Second Rinse Rule</span>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</button>
+</div>
+<div class="bg-surface rounded-xl shadow-[0_8px_16px_rgba(21,66,18,0.03)] border-t-2 border-primary overflow-hidden">
+<button class="w-full text-left px-md py-sm flex justify-between items-center bg-surface-container-lowest">
+<span class="font-label-md text-label-md text-primary font-bold">Ditch the Plastic Produce Bags</span>
+<span class="material-symbols-outlined text-primary">expand_less</span>
+</button>
+<div class="px-md pb-md bg-surface-container-lowest">
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Invest in a set of reusable mesh bags for fruits and vegetables. They are washable, durable, and significantly cut down on single-use plastic waste during your grocery runs. Keep them stored inside your main reusable shopping bags so you never forget them.</p>
+</div>
+</div>
+<div class="bg-surface rounded-xl shadow-[0_8px_16px_rgba(21,66,18,0.03)] border border-surface-variant overflow-hidden">
+<button class="w-full text-left px-md py-sm flex justify-between items-center hover:bg-surface-container-low transition-colors group">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Composting Basics for Apartments</span>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Dos and Donts -->
+<div class="md:col-span-5 flex flex-col gap-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-base flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">fact_check</span>
+                    Quick Sort Guide
+                </h2>
+<div class="bg-secondary-container rounded-xl p-md shadow-[0_4px_12px_rgba(21,66,18,0.02)]">
+<h3 class="font-label-md text-label-md text-on-secondary-container mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Always Do
+                    </h3>
+<ul class="flex flex-col gap-xs font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="text-primary mt-1">•</span> Flatten cardboard boxes completely.</li>
+<li class="flex items-start gap-xs"><span class="text-primary mt-1">•</span> Keep paper dry and clean.</li>
+<li class="flex items-start gap-xs"><span class="text-primary mt-1">•</span> Check local numbers for plastics.</li>
+</ul>
+</div>
+<div class="bg-error-container rounded-xl p-md shadow-[0_4px_12px_rgba(186,26,26,0.02)] mt-xs">
+<h3 class="font-label-md text-label-md text-on-error-container mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">cancel</span>
+                        Never Do
+                    </h3>
+<ul class="flex flex-col gap-xs font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="text-error mt-1">•</span> "Wish-cycle" unknown items.</li>
+<li class="flex items-start gap-xs"><span class="text-error mt-1">•</span> Put plastic bags in kerbside bins.</li>
+<li class="flex items-start gap-xs"><span class="text-error mt-1">•</span> Recycle greasy pizza boxes.</li>
+</ul>
+</div>
+</div>
+<!-- Local Check Widget -->
+<div class="md:col-span-12 mt-lg bg-surface-bright rounded-2xl p-lg shadow-[0_12px_24px_rgba(21,66,18,0.05)] border border-surface-variant flex flex-col md:flex-row items-center justify-between gap-lg">
+<div class="flex-1">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Unsure about an item?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rules vary significantly by municipality. Enter your postal code or city to fetch local disposal guidelines instantly.</p>
+</div>
+<div class="w-full md:w-auto flex gap-xs">
+<input class="bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-full md:w-64" placeholder="Enter Zip/Postal Code" type="text"/>
+<button class="bg-secondary text-on-secondary p-3 rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-xs py-sm bg-surface shadow-[0_-4px_12px_rgba(21,66,18,0.04)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" < a href="home.html">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" <a href="learn.html">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" <a href="classify.html">
+<span class="material-symbols-outlined text-[24px]">category</span>
+<span class="font-label-sm text-label-sm mt-1">Classify</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" < a href="quiz.html">
+<span class="material-symbols-outlined text-[24px]">quiz</span>
+<span class="font-label-sm text-label-sm mt-1">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" <a href="tips.html">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-label-sm text-label-sm mt-1 font-bold">Tips</span>
+</a>
+</nav>
+</body></html>  TIPS PAGE

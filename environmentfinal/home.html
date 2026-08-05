@@ -1,0 +1,333 @@
+
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSort - Smart Waste Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#72796e",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#ccebc7",
+                      "surface-dim": "#d9dad9",
+                      "on-primary-fixed": "#002201",
+                      "secondary": "#4a6549",
+                      "on-tertiary-fixed": "#2e150b",
+                      "on-surface-variant": "#42493e",
+                      "surface-variant": "#e1e3e2",
+                      "secondary-fixed": "#ccebc7",
+                      "tertiary": "#503226",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#6a483b",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9f9f8",
+                      "surface-tint": "#3b6934",
+                      "background": "#f9f9f8",
+                      "secondary-fixed-dim": "#b0cfad",
+                      "surface": "#f9f9f8",
+                      "primary-fixed": "#bcf0ae",
+                      "on-surface": "#191c1c",
+                      "on-secondary-fixed-variant": "#334d33",
+                      "tertiary-fixed-dim": "#ebbcac",
+                      "on-background": "#191c1c",
+                      "primary": "#154212",
+                      "primary-fixed-dim": "#a1d494",
+                      "inverse-surface": "#2e3131",
+                      "on-secondary-container": "#506b4f",
+                      "on-tertiary-container": "#e7b8a8",
+                      "surface-container-highest": "#e1e3e2",
+                      "on-primary-fixed-variant": "#23501e",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f3f4f3",
+                      "surface-container-high": "#e7e8e7",
+                      "outline-variant": "#c2c9bb",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f0f1f0",
+                      "inverse-primary": "#a1d494",
+                      "tertiary-fixed": "#ffdbcf",
+                      "on-tertiary-fixed-variant": "#603f33",
+                      "on-secondary-fixed": "#07200b",
+                      "primary-container": "#2d5a27",
+                      "surface-container": "#edeeed",
+                      "on-primary-container": "#9dd090"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "base": "8px",
+                      "margin-desktop": "64px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Work Sans"
+                      ],
+                      "label-md": [
+                              "Work Sans"
+                      ],
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased font-body-lg min-h-screen flex flex-col pb-20 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 shadow-sm sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile py-base md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim">EcoSort</span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-primary dark:text-primary-fixed-dim font-label-md text-label-md px-4 py-2 bg-secondary-container rounded-full transition-colors" < a href="home.html">Home</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high rounded-full transition-colors" <a href="learn.html">Learn</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high rounded-full transition-colors" <a href="classify.html">Classify</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high rounded-full transition-colors" <a href="quiz.html">Quiz</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high rounded-full transition-colors" <a href="tips.html">Tips</a>
+</nav>
+<button class="active:scale-95 transition-transform hover:opacity-80 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden min-h-[707px] flex items-center px-margin-mobile md:px-margin-desktop py-xl">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20" data-alt="A bright, modern composition showing clean, stylized recycling bins integrated into a lush green forest setting. Soft, diffused lighting evokes a calm overcast day. The palette features fresh greens, pristine whites, and subtle earthy browns. High resolution, tactile minimalism, conveying a sense of environmental stewardship and hope." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb7WNr_CDCTNzSH7Do3lbUILZ97TE81pVf0CEQ5yDy2pJTtH9KgDfQoGeYm5fZGJ34EfrqvPj8Ovw2rLFZhZig-ZvcQqxscaWbKswv8uW5TDnUwwYoqapqgx5rlBksx_1uW6RElTgc_TMQgaVccviQWOc08bkGz_luAuGhXILm6Mfw4HLZt9kY_fS95s8Oj7USz5V0BMhW53B_wjzZNXICHCGLdLxzc34cR4To8b_GhfjmRorvqqHFxw"/>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/80 to-background"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 flex flex-col gap-md">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full w-fit">
+<span class="material-symbols-outlined text-[18px]">public</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">The Global Challenge</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-primary-container leading-tight">
+                        Transforming Waste into <br class="hidden md:block"/> Environmental Wealth
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Every year, billions of tons of waste end up in landfills due to improper sorting. EcoSort empowers you to break this cycle. We make complex recycling rules simple, transforming a daily chore into a positive impact on our planet.
+                    </p>
+<div class="flex flex-wrap items-center gap-sm mt-sm">
+<a href="classify.html"
+   class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-[0_4px_12px_rgba(21,66,18,0.15)] inline-flex items-center gap-2">
+    <span>Get Started</span>
+    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<button class="bg-secondary-container text-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:bg-surface-tint/20 transition-colors duration-200 border border-transparent">
+                            Learn More
+                        </button>
+</div>
+</div>
+<!-- Hero Graphic / Bento -->
+<div class="md:col-span-5 mt-xl md:mt-0 relative">
+<div class="glass-panel rounded-[24px] p-gutter shadow-[0_12px_40px_rgba(21,66,18,0.08)] relative z-10 transform md:rotate-2 hover:rotate-0 transition-transform duration-500 border-t-2 border-primary-container/20">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-md text-headline-md text-primary">Sort Smart</h3>
+<span class="material-symbols-outlined text-secondary text-[32px]">recycling</span>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm p-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors cursor-pointer border border-surface-container">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-blue-700">inventory_2</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Cardboard &amp; Paper</h4>
+<p class="font-label-sm text-label-sm text-outline">Recyclable</p>
+</div>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors cursor-pointer border border-surface-container">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-orange-700">compost</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Organic Waste</h4>
+<p class="font-label-sm text-label-sm text-outline">Biodegradable</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative element behind -->
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-fixed-dim/30 rounded-full blur-2xl z-0"></div>
+</div>
+</div>
+</section>
+<!-- Impact Statistics Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Your Impact Matters</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Proper sorting isn't just about following rules; it's about measurable environmental recovery. See how small daily choices scale.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat Card 1 -->
+<div class="bg-surface rounded-xl p-gutter shadow-[0_4px_12px_rgba(21,66,18,0.04)] border-t-[3px] border-primary flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(21,66,18,0.08)] transition-shadow duration-300">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-secondary-container text-[32px]">water_drop</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-xs">7,000L</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Water Saved</p>
+<p class="font-body-md text-body-md text-outline mt-sm text-sm">Per ton of recycled paper vs raw materials.</p>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface rounded-xl p-gutter shadow-[0_4px_12px_rgba(21,66,18,0.04)] border-t-[3px] border-secondary flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(21,66,18,0.08)] transition-shadow duration-300">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[32px]">energy_savings_leaf</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-xs">95%</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Energy Conserved</p>
+<p class="font-body-md text-body-md text-outline mt-sm text-sm">When recycling aluminum compared to new production.</p>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface rounded-xl p-gutter shadow-[0_4px_12px_rgba(21,66,18,0.04)] border-t-[3px] border-tertiary-container flex flex-col items-center text-center hover:shadow-[0_8px_24px_rgba(21,66,18,0.08)] transition-shadow duration-300">
+<div class="w-16 h-16 rounded-full bg-error-container flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-error-container text-[32px]">delete_sweep</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-xs">40%</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Less Landfill</p>
+<p class="font-body-md text-body-md text-outline mt-sm text-sm">Reduction in volume through accurate household sorting.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-xs py-sm bg-surface dark:bg-surface-dim shadow-[0_-4px_12px_rgba(21,66,18,0.04)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full active:scale-90 duration-200" <a href="home.html">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full active:scale-90 duration-200" <a href="classify.html">
+<span class="material-symbols-outlined text-[24px]">category</span>
+<span class="font-label-sm text-label-sm mt-1">Classify</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full active:scale-90 duration-200" <a href="quiz.html">
+<span class="material-symbols-outlined text-[24px]">quiz</span>
+<span class="font-label-sm text-label-sm mt-1">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full active:scale-90 duration-200" <a href="tips.html">
+<span class="material-symbols-outlined text-[24px]">lightbulb</span>
+<span class="font-label-sm text-label-sm mt-1">Tips</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,350 @@
+
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learn - EcoSort</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#72796e",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#ccebc7",
+                      "surface-dim": "#d9dad9",
+                      "on-primary-fixed": "#002201",
+                      "secondary": "#4a6549",
+                      "on-tertiary-fixed": "#2e150b",
+                      "on-surface-variant": "#42493e",
+                      "surface-variant": "#e1e3e2",
+                      "secondary-fixed": "#ccebc7",
+                      "tertiary": "#503226",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#6a483b",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9f9f8",
+                      "surface-tint": "#3b6934",
+                      "background": "#f9f9f8",
+                      "secondary-fixed-dim": "#b0cfad",
+                      "surface": "#f9f9f8",
+                      "primary-fixed": "#bcf0ae",
+                      "on-surface": "#191c1c",
+                      "on-secondary-fixed-variant": "#334d33",
+                      "tertiary-fixed-dim": "#ebbcac",
+                      "on-background": "#191c1c",
+                      "primary": "#154212",
+                      "primary-fixed-dim": "#a1d494",
+                      "inverse-surface": "#2e3131",
+                      "on-secondary-container": "#506b4f",
+                      "on-tertiary-container": "#e7b8a8",
+                      "surface-container-highest": "#e1e3e2",
+                      "on-primary-fixed-variant": "#23501e",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f3f4f3",
+                      "surface-container-high": "#e7e8e7",
+                      "outline-variant": "#c2c9bb",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f0f1f0",
+                      "inverse-primary": "#a1d494",
+                      "tertiary-fixed": "#ffdbcf",
+                      "on-tertiary-fixed-variant": "#603f33",
+                      "on-secondary-fixed": "#07200b",
+                      "primary-container": "#2d5a27",
+                      "surface-container": "#edeeed",
+                      "on-primary-container": "#9dd090"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "base": "8px",
+                      "margin-desktop": "64px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Work Sans"
+                      ],
+                      "label-md": [
+                              "Work Sans"
+                      ],
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Ambient shadows for tactile feel */
+        .ambient-shadow-level-1 {
+            box-shadow: 0px 4px 12px rgba(21, 66, 18, 0.04);
+        }
+        
+        .ambient-shadow-level-2 {
+            box-shadow: 0px 8px 24px rgba(21, 66, 18, 0.08);
+        }
+
+        /* Glassmorphism effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased pb-[80px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-margin-mobile py-base md:px-margin-desktop sticky top-0 z-40 h-[64px]">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim fill">eco</span>
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim">EcoSort</span>
+</div>
+<!-- Desktop Navigation (Hidden on mobile) -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" <a href="home.html">Home</a>
+<a class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity font-label-md text-label-md flex items-center gap-xs bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed rounded-full px-4 py-1" href="#learn">Learn</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" <a href="classify.html">Classify</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" href="quiz.html">Quiz</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" href="tips.html">Tips</a>
+</nav>
+<button aria-label="Profile" class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Page Header -->
+<div class="mb-xl text-center md:text-left">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-sm">Mastering Waste Classification</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Understanding the different categories of waste is the first step towards an effective environmental stewardship. Explore the types below.</p>
+</div>
+<!-- Bento Grid Layout for Waste Categories -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Biodegradable Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow-level-1 border-t-2 border-[#8B5A2B] hover:ambient-shadow-level-2 transition-shadow duration-300 flex flex-col h-full lg:col-span-2 lg:row-span-1">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-12 h-12 rounded-full bg-[#f4e8df] flex items-center justify-center text-[#8B5A2B]">
+<span class="material-symbols-outlined fill text-[24px]">compost</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-[#8B5A2B]">Biodegradable</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Organic matter that can be broken down by microorganisms into simpler, stable compounds. Proper disposal reduces landfill methane emissions.
+                </p>
+<div class="bg-[#fcf8f5] rounded-lg p-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Examples</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4e8df]">Food Scraps</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4e8df]">Yard Waste</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4e8df]">Coffee Grounds</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4e8df]">Paper Towels (unsoiled)</span>
+</div>
+</div>
+</div>
+<!-- Recyclable Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow-level-1 border-t-2 border-[#2b6a8b] hover:ambient-shadow-level-2 transition-shadow duration-300 flex flex-col h-full lg:col-span-1 lg:row-span-2">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-12 h-12 rounded-full bg-[#dff0f4] flex items-center justify-center text-[#2b6a8b]">
+<span class="material-symbols-outlined fill text-[24px]">recycling</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-[#2b6a8b]">Recyclable</h2>
+</div>
+<div class="rounded-lg overflow-hidden mb-md h-32 w-full relative">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A clean, minimalist composition of neatly arranged clean recyclable items like glass bottles, folded cardboard, and plastic containers against a soft light blue background. High-key lighting, modern eco-friendly aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFMJRCblK_0zqNhsE7i0IvpRigGv7zwDuF7vgzxZ1_R01UNR-MpBN3SL0hEd2RHdWNdEbWAVUNRyISTp5CZgc4CBrZFhkBKWbmOZD40FcwIWQPCFB-OEW7gcQ6SuOfsZMwG0xaAkRpNsNEW3ZoU8wjgjyMvMwJLQfKhnTBdQhcK9oWw08aHwr7XHt-MNXmWVFl_n8AR-hhj3-TrQap4Ouf16-jMmtxeA8nnK1z_8sKHZPTiPne7_e1aA')"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Materials that can be processed and reformed into new products. Ensuring these are clean and dry is crucial for effective recycling.
+                </p>
+<div class="bg-[#f5fbfe] rounded-lg p-sm mt-auto">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Examples</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#dff0f4]">Paper &amp; Cardboard</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#dff0f4]">Glass Bottles</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#dff0f4]">Metal Cans</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#dff0f4]">Rigid Plastics</span>
+</div>
+</div>
+</div>
+<!-- Electronic Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow-level-1 border-t-2 border-[#5c606a] hover:ambient-shadow-level-2 transition-shadow duration-300 flex flex-col h-full lg:col-span-1 lg:row-span-1">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-12 h-12 rounded-full bg-[#e8e9ec] flex items-center justify-center text-[#5c606a]">
+<span class="material-symbols-outlined fill text-[24px]">devices</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-[#5c606a]">Electronic</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Discarded electrical or electronic devices. Contains valuable materials like gold and copper, but also toxic substances like lead and mercury.
+                </p>
+<div class="bg-[#f4f5f7] rounded-lg p-sm mt-auto">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Examples</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#e8e9ec]">Old Phones</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#e8e9ec]">Computers</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#e8e9ec]">Cables</span>
+</div>
+</div>
+</div>
+<!-- Hazardous Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow-level-1 border-t-2 border-[#8b2b2b] hover:ambient-shadow-level-2 transition-shadow duration-300 flex flex-col h-full lg:col-span-1 lg:row-span-1">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-12 h-12 rounded-full bg-[#f4dfdf] flex items-center justify-center text-[#8b2b2b]">
+<span class="material-symbols-outlined fill text-[24px]">warning</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-[#8b2b2b]">Hazardous</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Waste with properties that make it dangerous or capable of having a harmful effect on human health or the environment. Requires specialized disposal facilities.
+                </p>
+<div class="bg-[#fcf5f5] rounded-lg p-sm mt-auto">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Examples</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4dfdf]">Batteries</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4dfdf]">Paint Cans</span>
+<span class="bg-white px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant border border-[#f4dfdf]">Cleaning Chemicals</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<div class="mt-xl bg-secondary-container rounded-xl p-lg text-center flex flex-col items-center ambient-shadow-level-1">
+<span class="material-symbols-outlined text-on-secondary-container text-[48px] mb-sm">quiz</span>
+<h2 class="font-headline-md text-headline-md text-on-secondary-container mb-xs">Ready to test your knowledge?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md max-w-md">Take our quick sorting quiz to see how well you know these categories and earn a sorting badge.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 transition-opacity active:scale-95 shadow-md">
+                Start Quiz
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface dark:bg-surface-dim shadow-[0_-4px_12px_rgba(21,66,18,0.04)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-xs py-sm rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200" < a href="home.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed rounded-full px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined fill">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200" < a href="classify.html">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-sm text-label-sm mt-1">Classify</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200" <a href="quiz.html">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-sm text-label-sm mt-1">Quiz</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200" <a href="tips.html">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-label-sm text-label-sm mt-1">Tips</span>
+</a>
+</nav>
+</body></html>           
