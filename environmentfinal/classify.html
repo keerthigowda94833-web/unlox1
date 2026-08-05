@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -164,14 +164,41 @@
 </div>
 <!-- Upload Area -->
 <div class="w-full max-w-3xl mt-8">
-<button class="w-full relative group overflow-hidden rounded-2xl glass-panel p-lg flex flex-col items-center justify-center border-2 border-dashed border-primary/30 hover:border-primary transition-all duration-300 hover:shadow-lg bg-secondary-container/20 hover:bg-secondary-container/40">
+ <!-- change -->
+  <button
+onclick="chooseOption()"
+class="w-full relative group overflow-hidden rounded-2xl glass-panel p-lg flex flex-col items-center justify-center border-2 border-dashed border-primary/30 hover:border-primary transition-all duration-300 hover:shadow-lg bg-secondary-container/20 hover:bg-secondary-container/40">
+<!-- change -->
 <div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 <span class="material-symbols-outlined text-[48px] text-primary mb-4 group-hover:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
 <span class="font-headline-md text-headline-md text-primary mb-2">Scan or Upload Image</span>
 <span class="font-body-md text-body-md text-on-surface-variant">Tap to use camera or browse files</span>
 </button>
+</button>
+            <!-- change -->
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+capture="environment"
+hidden>
+
+<video
+id="camera"
+autoplay
+playsinline
+class="hidden mt-6 w-full rounded-2xl">
+</video>
+
+<img
+id="preview"
+class="hidden mt-6 w-full rounded-2xl">
+
+</div>
+<!-- </div>          change -->
 </div>
 </div>
+
 <!-- Bento Grid: Recent & Popular -->
 <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-gutter mt-lg">
 <!-- Popular Categories -->
@@ -272,4 +299,159 @@
 <span class="font-label-sm text-label-sm">Tips</span>
 </a>
 </nav>
+<script>
+const imageInput = document.getElementById("imageInput");
+const preview = document.getElementById("preview");
+const camera = document.getElementById("camera");
+
+function chooseOption() {
+
+    let useCamera = confirm("Press OK to open Camera\nPress Cancel to choose from Gallery");
+
+    if (useCamera) {
+        openCamera();
+    } else {
+        imageInput.click();
+    }
+}
+
+async function openCamera() {
+
+    try {
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: true
+        });
+
+        camera.srcObject = stream;
+
+        camera.classList.remove("hidden");
+        preview.classList.add("hidden");
+
+    } catch (err) {
+
+        alert("Unable to access camera.");
+
+    }
+
+}
+
+imageInput.addEventListener("change", function () {
+
+    if (this.files.length > 0) {
+
+        const file = this.files[0];
+
+        preview.src = URL.createObjectURL(file);
+
+        preview.classList.remove("hidden");
+        camera.classList.add("hidden");
+
+    }
+
+});
+</script>
+<!-- ================= Footer ================= -->
+
+<footer class="bg-primary text-white mt-16">
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+
+<div class="grid md:grid-cols-4 gap-10">
+
+<!-- About -->
+
+<div>
+
+<h2 class="text-2xl font-bold mb-4">EcoSort</h2>
+
+<p class="text-gray-200">
+
+EcoSort helps users identify the correct waste category through learning, quizzes, and smart waste classification.
+
+</p>
+
+</div>
+
+<!-- Quick Links -->
+
+<div>
+
+<h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+
+<ul class="space-y-2">
+
+<li><a href="home.html" class="hover:text-green-300">Home</a></li>
+
+<li><a href="learn.html" class="hover:text-green-300">Learn</a></li>
+
+<li><a href="classify.html" class="hover:text-green-300">Classify</a></li>
+
+<li><a href="quiz.html" class="hover:text-green-300">Quiz</a></li>
+
+<li><a href="tips.html" class="hover:text-green-300">Tips</a></li>
+
+</ul>
+
+</div>
+
+<!-- Contact -->
+
+<div>
+
+<h3 class="text-xl font-semibold mb-4">Contact</h3>
+
+<p>📧 ecosort@gmail.com</p>
+
+<p>📞 +91 98765 43210</p>
+
+<p>🌐 www.ecosort.com</p>
+
+</div>
+
+<!-- Address -->
+
+<div>
+
+<h3 class="text-xl font-semibold mb-4">Address</h3>
+
+<p>
+
+EcoSort Office<br>
+
+MG Road,<br>
+
+Bengaluru,<br>
+
+Karnataka - 560001
+
+</p>
+
+<div class="flex gap-4 mt-5">
+
+<a href="#" class="hover:text-green-300">🌐</a>
+
+<a href="#" class="hover:text-green-300">📘</a>
+
+<a href="#" class="hover:text-green-300">📷</a>
+
+<a href="#" class="hover:text-green-300">🐦</a>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-8 border-green-700">
+
+<div class="text-center text-gray-300">
+
+© 2026 EcoSort | Waste Segregation Guide | All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
 </body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+     <header>
+  <nav class="nav">
+    <div class="logo">SortRight</div>
+    <div class="menu">
+      <a href="final.html">Home</a>
+      <a href="page4.html">Learn</a>
+      <a href="page2.html">Classify</a>
+      <a href="page3.html">Quiz</a>
+      <a href="page5tip.html">Tips</a>
+    </div>
+  </nav>
+</header>
+    <section id="quiz" class="grid" style="margin-top: 40px;">
+    <div class="section-title"><span></span><h2>Quiz: Match the waste item</h2></div>
+    <div class="quiz-card">
+      <p>Choose the correct category for each item. Press submit to see your score.</p>
+      <form id="quizForm">
+        <div class="quiz-q">
+          <p>1. Old laptop</p>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="Electronic"> Electronic</label>
+            <label class="option"><input type="radio" name="q1" value="Recyclable"> Recyclable</label>
+            <label class="option"><input type="radio" name="q1" value="Hazardous"> Hazardous</label>
+          </div>
+        </div>
+        <div class="quiz-q">
+          <p>2. Eggshells</p>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="Biodegradable"> Biodegradable</label>
+            <label class="option"><input type="radio" name="q2" value="Recyclable"> Recyclable</label>
+            <label class="option"><input type="radio" name="q2" value="Electronic"> Electronic</label>
+          </div>
+        </div>
+        <div class="quiz-q">
+          <p>3. Spray paint can</p>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="Hazardous"> Hazardous</label>
+            <label class="option"><input type="radio" name="q3" value="Biodegradable"> Biodegradable</label>
+            <label class="option"><input type="radio" name="q3" value="Recyclable"> Recyclable</label>
+          </div>
+        </div>
+        <button type="submit">Check Answers</button>
+      </form>
+      <div id="quizScore" class="score-panel">Your score will appear here after submission.</div>
+    </div>
+  </section>
+  <footer class="footer">SortRight · Learn to separate waste safely and confidently.</footer>
+  
+</body>
+</html>

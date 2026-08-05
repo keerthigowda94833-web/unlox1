@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco Sort: Waste Segregation Guide</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef7f0;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #52606d;
+      --blue: #1d7cf2;
+      --green: #27ae60;
+      --orange: #f2994a;
+      --red: #ef4f4f;
+      --shadow: 0 18px 40px rgba(31, 41, 55, 0.1);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(139, 195, 74, 0.12), transparent 35%), linear-gradient(180deg, #f9fdfb 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+    header {
+      padding: 1.5rem 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand span {
+      background: var(--green);
+      width: 1.25rem;
+      height: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: .5rem;
+      color: white;
+      font-size: .9rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    nav button {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      transition: .2s ease;
+      font-size: .95rem;
+    }
+    nav button:hover,
+    nav button.active {
+      color: var(--text);
+      background: rgba(34, 197, 94, 0.1);
+    }
+    .hero {
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(34, 197, 94, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      margin: 0 0 1rem;
+      letter-spacing: -.04em;
+    }
+    .hero p {
+      max-width: 62ch;
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+    }
+    .hero .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      background: var(--green);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .hero .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(39, 174, 96, 0.18);
+    }
+    .section {
+      margin-top: 3rem;
+    }
+    .section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.9rem;
+    }
+    .section p {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      transition: transform .2s ease, border-color .2s ease;
+      border: 1px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.18);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: .75rem;
+    }
+    .card small {
+      color: var(--muted);
+    }
+    .pill {
+      display: inline-flex;
+      font-size: .85rem;
+      gap: .4rem;
+      align-items: center;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .pill.blue { background: rgba(29, 124, 242, 0.12); color: #1d7cf2; }
+    .pill.green { background: rgba(39, 174, 96, 0.12); color: #27ae60; }
+    .pill.orange { background: rgba(242, 153, 74, 0.16); color: #f2994a; }
+    .pill.red { background: rgba(239, 79, 79, 0.12); color: #ef4f4f; }
+    .page {
+      display: none;
+      animation: fadeIn .35s ease both;
+    }
+    .page.active {
+      display: block;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 2rem;
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .item-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .item-button {
+      border: 1px solid rgba(31, 41, 55, 0.08);
+      background: white;
+      border-radius: 18px;
+      padding: .9rem 1rem;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      text-align: center;
+      color: var(--text);
+    }
+    .item-button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(34, 197, 94, 0.18);
+      background: #f8fdf8;
+    }
+    .result-box,
+    .quiz-card {
+      background: var(--surface);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(31, 41, 55, 0.06);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .result-box strong {
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .result-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .85rem 1rem;
+      border-radius: 16px;
+      background: rgba(239, 79, 79, 0.08);
+      color: #b91c1c;
+      margin-top: 1rem;
+    }
+    .result-inline.success {
+      background: rgba(39, 174, 96, 0.12);
+      color: #166534;
+    }
+    .text-input {
+      width: 100%;
+      padding: 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 41, 55, 0.12);
+      font-size: 1rem;
+      margin-top: 1rem;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .text-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.12);
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .button {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: .95rem 1.5rem;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+    .button.secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid rgba(31, 41, 55, 0.12);
+    }
+    .color-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .color-strip span {
+      min-height: 4rem;
+      border-radius: 20px;
+    }
+    .color-strip span:nth-child(1) { background: rgba(29, 124, 242, 0.18); }
+    .color-strip span:nth-child(2) { background: rgba(39, 174, 96, 0.18); }
+    .color-strip span:nth-child(3) { background: rgba(242, 153, 74, 0.18); }
+    .color-strip span:nth-child(4) { background: rgba(239, 79, 79, 0.18); }
+    .tips-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .tip-card {
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 22px;
+      border: 1px solid rgba(34, 197, 94, 0.12);
+    }
+    .tip-card strong {
+      display: block;
+      margin-bottom: .75rem;
+      color: var(--text);
+    }
+    .quiz-options {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .quiz-options button {
+      border: 1px solid rgba(31, 41, 55, 0.12);
+      border-radius: 18px;
+      background: white;
+      padding: 1rem 1rem;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .quiz-options button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 197, 94, 0.2);
+    }
+    .quiz-options button.correct {
+      border-color: var(--green);
+      background: rgba(39, 174, 96, 0.12);
+    }
+    .quiz-options button.wrong {
+      border-color: var(--red);
+      background: rgba(239, 79, 79, 0.08);
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--muted);
+      padding-bottom: 2rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 860px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      nav { justify-content: center; }
+      .hero { padding: 1.5rem; }
+    }
+    @media (max-width: 620px) {
+      .hero { border-radius: 22px; }
+      .card, .result-box, .quiz-card { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#home">
+        <span>♻</span>
+        <div>
+          <div>Eco Sort</div>
+          <small style="color: var(--muted);">Waste Sorting Made Simple</small>
+        </div>
+      </a>
+      <nav>
+        <button type="button" data-target="home" class="active">Home</button>
+        <button type="button" data-target="learn">Learn</button>
+        <button type="button" data-target="classify">Classify</button>
+        <button type="button" data-target="quiz">Quiz</button>
+        <button type="button" data-target="tips">Tips</button>
+      </nav>
+    </header>
+
+    <section id="home" class="page active section">
+      <div class="hero">
+        <h1>Learn to sort waste the right way.</h1>
+        <p>This interactive environment-themed website explains why proper waste disposal matters and teaches users how to separate recyclable, biodegradable, electronic, and hazardous waste.</p>
+        <a class="cta" href="#learn" data-goto="learn">Start Learning</a>
+      </div>
+      <div class="grid-2" style="margin-top: 2rem; gap: 1.5rem; align-items: center;">
+        <div>
+          <h2>Why waste segregation matters</h2>
+          <p>When garbage is sorted correctly, it reduces pollution, saves resources, and protects nature. This website gives clear examples, a hands-on sorter, and a friendly quiz that helps everyone build better habits.</p>
+          <div class="color-strip">
+            <span title="Recyclable"></span>
+            <span title="Biodegradable"></span>
+            <span title="Electronic"></span>
+            <span title="Hazardous"></span>
+          </div>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, rgba(37, 150, 190, 0.08), rgba(236, 250, 241, 0.95));">
+          <h3>What you'll find</h3>
+          <p>Explore what belongs in each category, click items to see their correct group, type a waste name to classify it instantly, and test yourself with a fun quiz.</p>
+          <ul style="padding-left: 1.15rem; color: var(--muted);">
+            <li>Easy navigation for every section</li>
+            <li>Clear category color coding</li>
+            <li>Responsive design for mobile and desktop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="learn" class="page section">
+      <h2>Learn about waste categories</h2>
+      <p>Each waste category has a color and a purpose. Knowing the difference helps communities recycle more and keep dangerous materials out of the environment.</p>
+      <div class="learn-grid">
+        <article class="card">
+          <span class="pill blue">Recyclable</span>
+          <h3>Materials that can be reused</h3>
+          <p>Recyclable waste includes paper, glass, plastic bottles, cans, and cardboard. These items can be turned into new products when cleaned and sorted.</p>
+          <small>Example: newspaper, soda cans, plastic containers.</small>
+        </article>
+        <article class="card">
+          <span class="pill green">Biodegradable</span>
+          <h3>Natural waste that breaks down</h3>
+          <p>Biodegradable items are organic and decompose safely. Food scraps, yard trimmings, and paper towels help composting systems when disposed of properly.</p>
+          <small>Example: banana peel, leaves, coffee grounds.</small>
+        </article>
+        <article class="card">
+          <span class="pill orange">Electronic</span>
+          <h3>Devices and batteries</h3>
+          <p>Electronic waste includes gadgets, chargers, batteries, and cables. These items contain valuable metals and harmful substances that need special recycling.</p>
+          <small>Example: phone, laptop, AA battery.</small>
+        </article>
+        <article class="card">
+          <span class="pill red">Hazardous</span>
+          <h3>Dangerous household waste</h3>
+          <p>Hazardous waste must be handled carefully. Paint, chemicals, medical supplies, and fluorescent bulbs can harm people and the ecosystem if thrown away incorrectly.</p>
+          <small>Example: cleaning solutions, broken light bulbs, medication.</small>
+        </article>
+      </div>
+      <div class="section">
+        <div class="card">
+          <h3>How to recognize each type</h3>
+          <div class="item-list">
+            <button class="item-button" onclick="showTip('recyclable')">Recyclable: bottles, cans, boxes</button>
+            <button class="item-button" onclick="showTip('biodegradable')">Biodegradable: food, leaves</button>
+            <button class="item-button" onclick="showTip('electronic')">Electronic: phones, wires</button>
+            <button class="item-button" onclick="showTip('hazardous')">Hazardous: batteries, sprays</button>
+          </div>
+          <div id="learn-tip" style="margin-top:1rem;color:var(--muted);"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="classify" class="page section">
+      <h2>Classify waste items</h2>
+      <p>Click any item below or type a name to see which category it belongs to.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Waste clicker</h3>
+          <p>Select one of the common items to reveal its category.</p>
+          <div class="item-list">
+            <button class="item-button" onclick="classifyItem('Newspaper')">Newspaper</button>
+            <button class="item-button" onclick="classifyItem('Banana Peel')">Banana Peel</button>
+            <button class="item-button" onclick="classifyItem('Laptop')">Laptop</button>
+            <button class="item-button" onclick="classifyItem('Paint Can')">Paint Can</button>
+            <button class="item-button" onclick="classifyItem('Glass Bottle')">Glass Bottle</button>
+            <button class="item-button" onclick="classifyItem('Garden Waste')">Garden Waste</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Type to classify</h3>
+          <label for="searchInput" style="font-weight:600;">Enter waste item</label>
+          <input id="searchInput" class="text-input" type="text" placeholder="e.g. battery, apple core, plastic bag" onkeydown="if(event.key === 'Enter') classifyFromInput()" />
+          <div class="button-group">
+            <button class="button" onclick="classifyFromInput()">Classify</button>
+            <button class="button secondary" onclick="resetResult()">Reset</button>
+          </div>
+          <div id="classificationResult" class="result-box" style="display:none;"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Image upload placeholder</h3>
+        <p>This interface is ready for image-based classification in a future version. For now, the text input is the interactive classifier.</p>
+        <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:1rem;">
+          <div style="flex:1; min-width:160px; padding:1.2rem; border-radius:22px; background:#f4faf5; border:1px dashed rgba(39, 174, 96,0.3); text-align:center; color:var(--muted);">Upload photo<br><strong style="color:var(--text);">Coming soon</strong></div>
+          <div style="flex:1; min-width:160px; padding:1.2rem; border-radius:22px; background:#fff7f7; border:1px dashed rgba(239, 79, 79,0.3); text-align:center; color:var(--muted);">Ready for special items</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="page section">
+      <h2>Quiz & game</h2>
+      <p>Test your waste sorting knowledge with instant feedback. Choose the right category and learn as you go.</p>
+      <div class="quiz-card">
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>
+            <strong id="quizQuestion" style="font-size:1.15rem;">Which category does "Plastic Bottle" belong to?</strong>
+            <p style="margin: .5rem 0 0; color: var(--muted);">Choose one of the options below.</p>
+          </div>
+          <div style="text-align:right; color:var(--muted);">Score: <span id="quizScore">0</span> / <span id="quizTotal">0</span></div>
+        </div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="button-group">
+          <button class="button" onclick="nextQuestion()">Next Question</button>
+          <button class="button secondary" onclick="resetQuiz()">Restart Quiz</button>
+        </div>
+        <div id="quizFeedback" style="margin-top:1rem; color: var(--muted);"></div>
+      </div>
+    </section>
+
+    <section id="tips" class="page section">
+      <h2>Tips for correct disposal</h2>
+      <p>Keep your waste practice simple with short reminders and local rules that help protect the environment.</p>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <strong>Recyclable</strong>
+          <p>Rinse containers before recycling, flatten cardboard, and keep items dry. Avoid mixing food waste with paper or plastic.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Biodegradable</strong>
+          <p>Collect food scraps and yard waste separately. Compost kitchen waste when possible and avoid plastic-contaminated organic material.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Electronic</strong>
+          <p>Drop off e-waste at certified recycling centers. Never throw batteries or electronics in ordinary trash bins.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Hazardous</strong>
+          <p>Keep paints, chemicals and medical waste sealed. Follow local collection days and never dump hazardous liquids in drains.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Recycling Do’s</strong>
+          <p>Do clean containers, separate materials, and follow your local recycling rules.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Recycling Don’ts</strong>
+          <p>Don’t put greasy pizza boxes, used tissues, or tangled electronics in the recycle bin.</p>
+        </div>
+        <div class="tip-card">
+          <strong>Local reminder</strong>
+          <p>Check your community’s waste schedule. Some regions require specific days for hazardous and electronic collection.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Created to help everyone learn how to sort waste into recyclable, biodegradable, electronic, and hazardous categories.</p>
+    </footer>
+  </div>
+
+  <script>
+    const navButtons = document.querySelectorAll('nav button');
+    const pages = document.querySelectorAll('.page');
+    const learnTip = document.getElementById('learn-tip');
+    const classificationResult = document.getElementById('classificationResult');
+    const searchInput = document.getElementById('searchInput');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+    const quizScore = document.getElementById('quizScore');
+    const quizTotal = document.getElementById('quizTotal');
+    const quizFeedback = document.getElementById('quizFeedback');
+
+    const categories = {
+      recyclable: { color: 'blue', name: 'Recyclable', description: 'Clean glass, paper, plastic and metal items that can be reused.' },
+      biodegradable: { color: 'green', name: 'Biodegradable', description: 'Organic waste that breaks down naturally in compost.' },
+      electronic: { color: 'orange', name: 'Electronic', description: 'Devices, batteries, and cables that need special recycling.' },
+      hazardous: { color: 'red', name: 'Hazardous', description: 'Dangerous products like chemicals, bulbs, and medicines.' }
+    };
+
+    const wasteMap = {
+      newspaper: 'recyclable', glass: 'recyclable', cardboard: 'recyclable', plastic: 'recyclable', can: 'recyclable', tin: 'recyclable', bottle: 'recyclable', cup: 'recyclable', magazine: 'recyclable', paper: 'recyclable', food: 'biodegradable', banana: 'biodegradable', peel: 'biodegradable', leaves: 'biodegradable', grass: 'biodegradable', apple: 'biodegradable', coffee: 'biodegradable', yard: 'biodegradable', compost: 'biodegradable', laptop: 'electronic', phone: 'electronic', charger: 'electronic', battery: 'electronic', cable: 'electronic', tablet: 'electronic', remote: 'electronic', paint: 'hazardous', bulb: 'hazardous', chemical: 'hazardous', medicine: 'hazardous', spray: 'hazardous', battery: 'hazardous', aerosol: 'hazardous', cleaner: 'hazardous', solvent: 'hazardous'
+    };
+
+    const quizItems = [
+      { item: 'Plastic Bottle', answer: 'recyclable' },
+      { item: 'Eggshell', answer: 'biodegradable' },
+      { item: 'Old Phone', answer: 'electronic' },
+      { item: 'Used Battery', answer: 'hazardous' },
+      { item: 'Cardboard Box', answer: 'recyclable' },
+      { item: 'Tea Bag', answer: 'biodegradable' },
+      { item: 'Laptop Charger', answer: 'electronic' },
+      { item: 'Paint Bucket', answer: 'hazardous' }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let totalAnswered = 0;
+
+    function setActivePage(target) {
+      pages.forEach(page => {
+        page.classList.toggle('active', page.id === target);
+      });
+      navButtons.forEach(button => {
+        button.classList.toggle('active', button.dataset.target === target);
+      });
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.target;
+        setActivePage(target);
+        if (target === 'quiz') {
+          renderQuestion();
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-goto]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        setActivePage(link.dataset.goto);
+      });
+    });
+
+    function showTip(category) {
+      const info = {
+        recyclable: 'Recyclable waste can be cleaned and reused. Think bottles, metal cans, and paper packaging.',
+        biodegradable: 'Biodegradable waste decomposes naturally. Use compost bins for food scraps and yard trimmings.',
+        electronic: 'Electronic waste includes devices and batteries. Take them to an e-waste dropoff location.',
+        hazardous: 'Hazardous waste requires special disposal. Keep paint, chemicals, and medicine separate.'
+      };
+      learnTip.textContent = info[category] || 'Tap a category to learn more.';
+    }
+
+    function classifyItem(itemName) {
+      const item = itemName.toLowerCase();
+      let matched = null;
+      Object.keys(wasteMap).forEach(key => {
+        if (item.includes(key)) {
+          matched = wasteMap[key];
+        }
+      });
+      displayCategory(itemName, matched);
+    }
+
+    function classifyFromInput() {
+      const itemName = searchInput.value.trim();
+      if (!itemName) {
+        classificationResult.style.display = 'block';
+        classificationResult.innerHTML = '<strong>Please type an item name.</strong>';
+        return;
+      }
+      classifyItem(itemName);
+    }
+
+    function resetResult() {
+      classificationResult.style.display = 'none';
+      classificationResult.innerHTML = '';
+      searchInput.value = '';
+    }
+
+    function displayCategory(itemName, categoryKey) {
+      classificationResult.style.display = 'block';
+      if (!categoryKey) {
+        classificationResult.innerHTML = `<strong>Item:</strong> ${escapeHtml(itemName)}<br><span class="result-inline">Sorry, this item was not recognized. Try another example.</span>`;
+        return;
+      }
+      const category = categories[categoryKey];
+      classificationResult.innerHTML = `
+        <strong>Item:</strong> ${escapeHtml(itemName)}<br>
+        <span class="pill ${category.color}">${category.name}</span>
+        <p style="margin-top:1rem;color:var(--muted);">${escapeHtml(category.description)}</p>
+      `;
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[char]);
+    }
+
+    function renderQuestion() {
+      if (currentQuestion >= quizItems.length) {
+        currentQuestion = 0;
+      }
+      const question = quizItems[currentQuestion];
+      quizQuestion.textContent = `Which category does "${question.item}" belong to?`;
+      const choices = shuffleArray(['recyclable', 'biodegradable', 'electronic', 'hazardous']);
+      quizOptions.innerHTML = '';
+      choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.textContent = categories[choice].name;
+        button.addEventListener('click', () => chooseAnswer(choice));
+        quizOptions.appendChild(button);
+      });
+      quizScore.textContent = score;
+      quizTotal.textContent = totalAnswered;
+      quizFeedback.textContent = 'Select the correct category to see instant feedback.';
+    }
+
+    function chooseAnswer(choice) {
+      const question = quizItems[currentQuestion];
+      const isCorrect = choice === question.answer;
+      totalAnswered += 1;
+      if (isCorrect) {
+        score += 1;
+      }
+      quizScore.textContent = score;
+      quizTotal.textContent = totalAnswered;
+      quizFeedback.textContent = isCorrect ? 'Great job! That is correct.' : `Oops! The right answer is ${categories[question.answer].name}.`;
+      Array.from(quizOptions.children).forEach(button => {
+        const label = button.textContent.toLowerCase();
+        if (label === question.answer) {
+          button.classList.add('correct');
+        }
+        if (label === choice && !isCorrect) {
+          button.classList.add('wrong');
+        }
+        button.disabled = true;
+      });
+    }
+
+    function nextQuestion() {
+      currentQuestion = (currentQuestion + 1) % quizItems.length;
+      renderQuestion();
+    }
+
+    function resetQuiz() {
+      score = 0;
+      totalAnswered = 0;
+      currentQuestion = 0;
+      renderQuestion();
+    }
+
+    function shuffleArray(array) {
+      return array.slice().sort(() => Math.random() - 0.5);
+    }
+
+    resetQuiz();
+  </script>
+</body>
+</html>

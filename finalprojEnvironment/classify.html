@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+      <a class="brand" <a href="home.html">
+        <span>♻</span>
+        <div>
+          <div>Eco Sort</div>
+          <small style="color: var(--muted);">Waste Sorting Made Simple</small>
+        </div>
+      </a>
+      <nav>
+        <button type="button" data-target="home" class="active">Home</button>
+        <button type="button" data-target="learn">Learn</button>
+        <button type="button" data-target="classify">Classify</button>
+        <button type="button" data-target="quiz">Quiz</button>
+        <button type="button" data-target="tips">Tips</button>
+      </nav>
+    </header>
+    <section id="classify" class="page section">
+      <h2>Classify waste items</h2>
+      <p>Click any item below or type a name to see which category it belongs to.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Waste clicker</h3>
+          <p>Select one of the common items to reveal its category.</p>
+              <div class="item-list">
+                <button class="item-button" onclick="classifyItem('Newspaper')">Newspaper</button>
+                <button class="item-button" onclick="classifyItem('Banana Peel')">Banana Peel</button>
+                <button class="item-button" onclick="classifyItem('Laptop')">Laptop</button>
+                <button class="item-button" onclick="classifyItem('Paint Can')">Paint Can</button>
+                <button class="item-button" onclick="classifyItem('Glass Bottle')">Glass Bottle</button>
+                <button class="item-button" onclick="classifyItem('Garden Waste')">Garden Waste</button>
+                <button class="item-button" onclick="classifyItem('Plastic Bottle')">Plastic Bottle</button>
+                <button class="item-button" onclick="classifyItem('Plastic Bag')">Plastic Bag</button>
+                <button class="item-button" onclick="classifyItem('Aluminum Can')">Aluminum Can</button>
+                <button class="item-button" onclick="classifyItem('Coffee Cup')">Coffee Cup</button>
+                <button class="item-button" onclick="classifyItem('Used Battery')">Battery</button>
+                <button class="item-button" onclick="classifyItem('Broken Bulb')">Broken Bulb</button>
+                <button class="item-button" onclick="classifyItem('Cardboard Box')">Cardboard Box</button>
+                <button class="item-button" onclick="classifyItem('Tea Bag')">Tea Bag</button>
+                <button class="item-button" onclick="classifyItem('Old Phone')">Old Phone</button>
+              </div>
+        </div>
+        <div class="card">
+          <h3>Type to classify</h3>
+          <label for="searchInput" style="font-weight:600;">Enter waste item</label>
+          <input id="searchInput" class="text-input" type="text" placeholder="e.g. battery, apple core, plastic bag" onkeydown="if(event.key === 'Enter') classifyFromInput()" />
+          <div class="button-group">
+            <button class="button" onclick="classifyFromInput()">Classify</button>
+            <button class="button secondary" onclick="resetResult()">Reset</button>
+          </div>
+          <div id="classificationResult" class="result-box" style="display:none;"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Image upload</h3>
+        <p>Upload a photo of an item (or drag & drop) to classify it. The current classifier uses filename heuristics as a simple client-side demo.</p>
+        <div style="margin-top:1rem;">
+          <div id="uploadArea" class="upload-area" tabindex="0">
+            <div style="flex:1; color:var(--muted);">
+              <strong>Drop an image here</strong>
+              <div style="font-size:.9rem; margin-top:.35rem;">or <button id="pickFileBtn" class="button secondary" style="padding:.35rem .6rem; font-weight:600;">Choose a file</button></div>
+              <input id="imageInput" type="file" accept="image/*" style="display:none;" />
+            </div>
+            <div class="upload-preview" id="uploadPreview" aria-hidden="true"></div>
+          </div>
+          <div class="button-group" style="margin-top:1rem;">
+            <button class="button" id="classifyImageBtn">Classify Image</button>
+            <button class="button secondary" id="clearImageBtn">Clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+      <footer class="footer">
+      <p>Created to help everyone learn how to sort waste into recyclable, biodegradable, electronic, and hazardous categories.</p>
+    </footer>
+  </div>
+  <script>
+    const navButtons = document.querySelectorAll('nav button');
+    const pages = document.querySelectorAll('.page');
+    const learnTip = document.getElementById('learn-tip');
+    const classificationResult = document.getElementById('classificationResult');
+    const searchInput = document.getElementById('searchInput');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+    const quizScore = document.getElementById('quizScore');
+    const quizTotal = document.getElementById('quizTotal');
+    const quizFeedback = document.getElementById('quizFeedback');
+
+    const categories = {
+      recyclable: { color: 'blue', name: 'Recyclable', description: 'Clean glass, paper, plastic and metal items that can be reused.' },
+      biodegradable: { color: 'green', name: 'Biodegradable', description: 'Organic waste that breaks down naturally in compost.' },
+      electronic: { color: 'orange', name: 'Electronic', description: 'Devices, batteries, and cables that need special recycling.' },
+      hazardous: { color: 'red', name: 'Hazardous', description: 'Dangerous products like chemicals, bulbs, and medicines.' }
+    };
+
+    const wasteMap = {
+      newspaper: 'recyclable',
+      glass: 'recyclable',
+      cardboard: 'recyclable',
+      plastic: 'recyclable',
+      can: 'recyclable',
+      tin: 'recyclable',
+      bottle: 'recyclable',
+      cup: 'recyclable',
+      magazine: 'recyclable',
+      paper: 'recyclable',
+      aluminum: 'recyclable',
+      bag: 'recyclable',
+      food: 'biodegradable',
+      banana: 'biodegradable',
+      peel: 'biodegradable',
+      leaves: 'biodegradable',
+      grass: 'biodegradable',
+      apple: 'biodegradable',
+      coffee: 'biodegradable',
+      tea: 'biodegradable',
+      egg: 'biodegradable',
+      yard: 'biodegradable',
+      compost: 'biodegradable',
+      laptop: 'electronic',
+      phone: 'electronic',
+      charger: 'electronic',
+      battery: 'hazardous',
+      cable: 'electronic',
+      tablet: 'electronic',
+      remote: 'electronic',
+      paint: 'hazardous',
+      bulb: 'hazardous',
+      chemical: 'hazardous',
+      medicine: 'hazardous',
+      spray: 'hazardous',
+      aerosol: 'hazardous',
+      cleaner: 'hazardous',
+      solvent: 'hazardous'
+    };
+
+    const quizItems = [
+      { item: 'Plastic Bottle', answer: 'recyclable' },
+      { item: 'Eggshell', answer: 'biodegradable' },
+      { item: 'Old Phone', answer: 'electronic' },
+      { item: 'Used Battery', answer: 'hazardous' },
+      { item: 'Cardboard Box', answer: 'recyclable' },
+      { item: 'Tea Bag', answer: 'biodegradable' },
+      { item: 'Laptop Charger', answer: 'electronic' },
+      { item: 'Paint Bucket', answer: 'hazardous' }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let totalAnswered = 0;
+
+    function setActivePage(target) {
+      pages.forEach(page => {
+        page.classList.toggle('active', page.id === target);
+      });
+      navButtons.forEach(button => {
+        button.classList.toggle('active', button.dataset.target === target);
+      });
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.target;
+        setActivePage(target);
+        if (target === 'quiz') {
+          renderQuestion();
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-goto]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        setActivePage(link.dataset.goto);
+      });
+    });
+
+    function showTip(category) {
+      const info = {
+        recyclable: 'Recyclable waste can be cleaned and reused. Think bottles, metal cans, and paper packaging.',
+        biodegradable: 'Biodegradable waste decomposes naturally. Use compost bins for food scraps and yard trimmings.',
+        electronic: 'Electronic waste includes devices and batteries. Take them to an e-waste dropoff location.',
+        hazardous: 'Hazardous waste requires special disposal. Keep paint, chemicals, and medicine separate.'
+      };
+      learnTip.textContent = info[category] || 'Tap a category to learn more.';
+    }
+
+    function classifyItem(itemName) {
+      const item = itemName.toLowerCase();
+      let matched = null;
+      Object.keys(wasteMap).forEach(key => {
+        if (item.includes(key)) {
+          matched = wasteMap[key];
+        }
+      });
+      displayCategory(itemName, matched);
+    }
+
+    function classifyFromInput() {
+      const itemName = searchInput.value.trim();
+      if (!itemName) {
+        classificationResult.style.display = 'block';
+        classificationResult.innerHTML = '<strong>Please type an item name.</strong>';
+        return;
+      }
+      classifyItem(itemName);
+    }
+
+    function resetResult() {
+      classificationResult.style.display = 'none';
+      classificationResult.innerHTML = '';
+      searchInput.value = '';
+    }
+
+    function displayCategory(itemName, categoryKey) {
+      classificationResult.style.display = 'block';
+      if (!categoryKey) {
+        classificationResult.innerHTML = `<strong>Item:</strong> ${escapeHtml(itemName)}<br><span class="result-inline">Sorry, this item was not recognized. Try another example.</span>`;
+        return;
+      }
+      const category = categories[categoryKey];
+      classificationResult.innerHTML = `
+        <strong>Item:</strong> ${escapeHtml(itemName)}<br>
+        <span class="pill ${category.color}">${category.name}</span>
+        <p style="margin-top:1rem;color:var(--muted);">${escapeHtml(category.description)}</p>
+      `;
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[char]);
+    }
+
+    function renderQuestion() {
+      if (currentQuestion >= quizItems.length) {
+        currentQuestion = 0;
+      }
+      const question = quizItems[currentQuestion];
+      quizQuestion.textContent = `Which category does "${question.item}" belong to?`;
+      const choices = shuffleArray(['recyclable', 'biodegradable', 'electronic', 'hazardous']);
+      quizOptions.innerHTML = '';
+      choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.textContent = categories[choice].name;
+        button.addEventListener('click', () => chooseAnswer(choice));
+        quizOptions.appendChild(button);
+      });
+      quizScore.textContent = score;
+      quizTotal.textContent = totalAnswered;
+      quizFeedback.textContent = 'Select the correct category to see instant feedback.';
+    }
+
+    function chooseAnswer(choice) {
+      const question = quizItems[currentQuestion];
+      const isCorrect = choice === question.answer;
+      totalAnswered += 1;
+      if (isCorrect) {
+        score += 1;
+      }
+      quizScore.textContent = score;
+      quizTotal.textContent = totalAnswered;
+      quizFeedback.textContent = isCorrect ? 'Great job! That is correct.' : `Oops! The right answer is ${categories[question.answer].name}.`;
+      Array.from(quizOptions.children).forEach(button => {
+        const label = button.textContent.toLowerCase();
+        if (label === question.answer) {
+          button.classList.add('correct');
+        }
+        if (label === choice && !isCorrect) {
+          button.classList.add('wrong');
+        }
+        button.disabled = true;
+      });
+    }
+
+    function nextQuestion() {
+      currentQuestion = (currentQuestion + 1) % quizItems.length;
+      renderQuestion();
+    }
+
+    function resetQuiz() {
+      score = 0;
+      totalAnswered = 0;
+      currentQuestion = 0;
+      renderQuestion();
+    }
+
+    function shuffleArray(array) {
+      return array.slice().sort(() => Math.random() - 0.5);
+    }
+
+    // --- Image upload handlers ---
+    const imageInput = document.getElementById('imageInput');
+    const uploadArea = document.getElementById('uploadArea');
+    const pickFileBtn = document.getElementById('pickFileBtn');
+    const uploadPreview = document.getElementById('uploadPreview');
+    const classifyImageBtn = document.getElementById('classifyImageBtn');
+    const clearImageBtn = document.getElementById('clearImageBtn');
+    let selectedImageFile = null;
+
+    if (pickFileBtn) pickFileBtn.addEventListener('click', () => imageInput.click());
+    if (imageInput) imageInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+    });
+
+    if (uploadArea) {
+      uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+      uploadArea.addEventListener('dragleave', () => { uploadArea.classList.remove('dragover'); });
+      uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault(); uploadArea.classList.remove('dragover');
+        const f = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) handleFile(f);
+      });
+      uploadArea.addEventListener('click', () => imageInput.click());
+    }
+
+    if (classifyImageBtn) classifyImageBtn.addEventListener('click', () => {
+      if (selectedImageFile) classifyImageFromFile(selectedImageFile);
+      else {
+        classificationResult.style.display = 'block';
+        classificationResult.innerHTML = '<strong>Please upload an image first.</strong>';
+      }
+    });
+    if (clearImageBtn) clearImageBtn.addEventListener('click', () => {
+      selectedImageFile = null; uploadPreview.innerHTML = ''; imageInput.value = ''; resetResult();
+    });
+
+    function handleFile(file) {
+      if (!file.type || !file.type.startsWith('image/')) {
+        classificationResult.style.display = 'block';
+        classificationResult.innerHTML = '<strong>Please upload an image file.</strong>';
+        return;
+      }
+      selectedImageFile = file;
+      previewImage(file);
+    }
+
+    function previewImage(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        uploadPreview.innerHTML = `<img src="${e.target.result}" alt="uploaded image" />`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function classifyImageFromFile(file) {
+      const name = file.name || '';
+      const base = name.replace(/\.[^/.]+$/, '').toLowerCase();
+      classifyItem(base);
+    }
+
+    resetQuiz();
+  </script>
+</body>
+</html>

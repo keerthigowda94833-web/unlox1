@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+      <a class="brand" <a href="home.html">
+        <span>♻</span>
+        <div>
+          <div>Eco Sort</div>
+          <small style="color: var(--muted);">Waste Sorting Made Simple</small>
+        </div>
+      </a>
+      <nav>
+        <button type="button" data-target="home" class="active">Home</button>
+        <button type="button" data-target="learn">Learn</button>
+        <button type="button" data-target="classify">Classify</button>
+        <button type="button" data-target="quiz">Quiz</button>
+        <button type="button" data-target="tips">Tips</button>
+      </nav>
+    </header>
+    <section id="quiz" class="page section">
+      <h2>Quiz & game</h2>
+      <p>Test your waste sorting knowledge with instant feedback. Choose the right category and learn as you go.</p>
+      <div class="quiz-card">
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>
+            <strong id="quizQuestion" style="font-size:1.15rem;">Which category does "Plastic Bottle" belong to?</strong>
+            <p style="margin: .5rem 0 0; color: var(--muted);">Choose one of the options below.</p>
+          </div>
+          <div style="text-align:right; color:var(--muted);">Score: <span id="quizScore">0</span> / <span id="quizTotal">0</span></div>
+        </div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="button-group">
+          <button class="button" onclick="nextQuestion()">Next Question</button>
+          <button class="button secondary" onclick="resetQuiz()">Restart Quiz</button>
+        </div>
+        <div id="quizFeedback" style="margin-top:1rem; color: var(--muted);"></div>
+      </div>
+    </section>
+      <footer class="footer">
+      <p>Created to help everyone learn how to sort waste into recyclable, biodegradable, electronic, and hazardous categories.</p>
+    </footer>
+  </div>
+</body>
+</html>

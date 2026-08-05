@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <header>
+  <nav class="nav">
+    <div class="logo">SortRight</div>
+    <div class="menu">
+      <a href="final.html">Home</a>
+      <a href="page4.html">Learn</a>
+      <a href="page2.html">Classify</a>
+      <a href="page3.html">Quiz</a>
+      <a href="page5tip.html">Tips</a>
+    </div>
+  </nav>
+</header>
+    <section id="classify" class="grid" style="margin-top: 40px;">
+    <div class="section-title"><span></span><h2>Classify waste items</h2></div>
+    <div class="panel">
+      <p>Click an item below to see its category, or type the item name to classify it.</p>
+      <div class="classify-grid" id="itemGrid">
+        <div class="item-card" data-item="Paper"><span>📄</span><strong>Paper</strong></div>
+        <div class="item-card" data-item="Banana peel"><span>🍌</span><strong>Banana peel</strong></div>
+        <div class="item-card" data-item="Phone"><span>📱</span><strong>Phone</strong></div>
+        <div class="item-card" data-item="Battery"><span>🔋</span><strong>Battery</strong></div>
+        <div class="item-card" data-item="Glass bottle"><span>🍾</span><strong>Glass bottle</strong></div>
+        <div class="item-card" data-item="Coffee grounds"><span>☕</span><strong>Coffee grounds</strong></div>
+        <div class="item-card" data-item="Printer"><span>🖨️</span><strong>Printer</strong></div>
+        <div class="item-card" data-item="Paint"><span>🧴</span><strong>Paint</strong></div>
+      </div>
+      <div class="input-group">
+        <label for="itemInput"><strong>Type an item name</strong></label>
+        <input id="itemInput" type="text" placeholder="e.g. plastic bottle">
+        <button id="classifyBtn" type="button">Classify item</button>
+      </div>
+      <div id="classifyResult" class="result" aria-live="polite">Select an item or type a name to see its category.</div>
+    </div>
+  </section>
+  <footer class="footer">SortRight · Learn to separate waste safely and confidently.</footer>
+  <script>
+  const categories = {
+    "paper": { label: "Recyclable", color: "--blue" },
+    "plastic bottle": { label: "Recyclable", color: "--blue" },
+    "glass bottle": { label: "Recyclable", color: "--blue" },
+    "can": { label: "Recyclable", color: "--blue" },
+    "banana peel": { label: "Biodegradable", color: "--green" },
+    "eggshells": { label: "Biodegradable", color: "--green" },
+    "coffee grounds": { label: "Biodegradable", color: "--green" },
+    "food scraps": { label: "Biodegradable", color: "--green" },
+    "phone": { label: "Electronic", color: "--orange" },
+    "charger": { label: "Electronic", color: "--orange" },
+    "printer": { label: "Electronic", color: "--orange" },
+    "laptop": { label: "Electronic", color: "--orange" },
+    "battery": { label: "Hazardous", color: "--red" },
+    "paint": { label: "Hazardous", color: "--red" },
+    "needle": { label: "Hazardous", color: "--red" },
+    "cleaning chemicals": { label: "Hazardous", color: "--red" }
+  };
+  const classifyResult = document.getElementById("classifyResult");
+  const itemGrid = document.getElementById("itemGrid");
+  itemGrid.addEventListener("click", (event) => {
+    const card = event.target.closest(".item-card");
+    if (!card) return;
+    showCategory(card.dataset.item.toLowerCase());
+  });
+  document.getElementById("classifyBtn").addEventListener("click", () => {
+    const text = document.getElementById("itemInput").value.trim().toLowerCase();
+    if (!text) {
+      classifyResult.textContent = "Please type an item name first.";
+      return;
+    }
+    showCategory(text);
+  });
+  function showCategory(item) {
+    const entry = categories[item] || categories[item.replace(/s$/, "")];
+    if (entry) {
+      classifyResult.innerHTML = `<strong>${item}</strong> belongs in <span style="color: var(${entry.color}); font-weight: 700;">${entry.label}</span>.`;
+    } else {
+      classifyResult.innerHTML = `<strong>${item}</strong> is not listed, but think: is it recyclable, biodegradable, electronic, or hazardous?`;
+    }
+  }
+  const quizForm = document.getElementById("quizForm");
+  const quizScore = document.getElementById("quizScore");
+  quizForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const answers = { q1: "Electronic", q2: "Biodegradable", q3: "Hazardous" };
+    let score = 0;
+    const formData = new FormData(quizForm);
+    Object.keys(answers).forEach((key) => {
+      if (formData.get(key) === answers[key]) score += 1;
+    });
+    const total = Object.keys(answers).length;
+    quizScore.textContent = `You scored ${score} out of ${total}. ${score === total ? "Excellent!" : "Try again to improve your sorting skills."}`;
+  });
+  document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(anchor.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
+</body>
+</html>

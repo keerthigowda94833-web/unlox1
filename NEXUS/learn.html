@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Sort | Learn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Sort | Learn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <a class="brand" href="home.html">
+            <span>♻</span>
+            <div>
+                <div>Eco Sort</div>
+                <small style="color: var(--muted);">
+                    Waste Sorting Made Simple
+                </small>
+            </div>
+        </a>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="learn.html" class="active">Learn</a>
+            <a href="classify.html">Classify</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="tips.html">Tips</a>
+        </nav>
+    </header>
+
+    <!-- Learn Section -->
+
+    <section class="section">
+        <h2>Learn About Waste Categories</h2>
+        <p>
+            Waste segregation helps protect the environment.
+            Learn about the four major waste categories below.
+        </p>
+        <div class="learn-grid">
+            <article class="card">
+                <span class="pill blue">Recyclable</span>
+                <h3>Materials that can be reused</h3>
+                <p>
+                    Recyclable waste includes paper,
+                    cardboard,
+                    glass bottles,
+                    plastic bottles,
+                    and metal cans.
+                </p>
+                <small>
+                    Examples:
+                    Newspaper,
+                    Cardboard,
+                    Plastic Bottle,
+                    Glass Bottle.
+                </small>
+            </article>
+
+            <article class="card">
+                <span class="pill green">Biodegradable</span>
+                <h3>Organic Waste</h3>
+                <p>
+                    Biodegradable waste decomposes naturally
+                    and can be converted into compost.
+                </p>
+                <small>
+                    Examples:
+                    Banana Peel,
+                    Leaves,
+                    Food Waste,
+                    Tea Bag.
+                </small>
+            </article>
+
+            <article class="card">
+                <span class="pill orange">Electronic</span>
+                <h3>E-Waste</h3>
+                <p>
+                    Electronic waste includes old electronic
+                    devices that should be recycled safely.
+                </p>
+                <small>
+                    Examples:
+                    Mobile Phone,
+                    Laptop,
+                    Charger,
+                    Cable.
+                </small>
+            </article>
+
+            <article class="card">
+                <span class="pill red">Hazardous</span>
+                <h3>Hazardous Waste</h3>
+                <p>
+                    Hazardous waste contains harmful chemicals
+                    that require special disposal.
+                </p>
+                <small>
+                    Examples:
+                    Batteries,
+                    Paint,
+                    Chemicals,
+                    Medicines.
+                </small>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Interactive Learn -->
+
+    <section class="section">
+        <div class="card">
+            <h2>Click to Learn More</h2>
+            <p>
+                Click any category below to learn
+                about it.
+            </p>
+            <div class="item-list">
+                <button class="item-button"
+                    onclick="showTip('recyclable')">
+                    Recyclable
+                </button>
+                <button class="item-button"
+                    onclick="showTip('biodegradable')">
+                    Biodegradable
+                </button>
+                <button class="item-button"
+                    onclick="showTip('electronic')">
+                    Electronic
+                </button>
+                <button class="item-button"
+                    onclick="showTip('hazardous')">
+                    Hazardous
+                </button>
+            </div>
+            <div id="learn-tip"
+                style="margin-top:20px;
+                font-size:18px;
+                color:#555;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+    <div class="footer-content">
+        <h3>♻ Eco Sort</h3>
+        <p>
+            Learn • Segregate • Recycle • Protect Nature
+        </p>
+        <p>
+            Eco Sort helps users identify recyclable,
+            biodegradable, electronic, and hazardous waste
+            through interactive learning and quizzes.
+        </p>
+        <hr>
+        <p>
+            © 2026 Eco Sort | Waste Segregation Guide
+        </p>
+        <p>
+            Designed for Environmental Awareness Project
+        </p>
+    </div>
+</footer>
+</div>
+
+<script>
+function showTip(category){
+    let text="";
+    if(category==="recyclable"){
+        text="♻ Recyclable waste includes paper, plastic bottles, glass bottles, cardboard, and metal cans. These items can be processed and used again.";
+    }
+    else if(category==="biodegradable"){
+        text="🌿 Biodegradable waste includes food scraps, fruit peels, tea bags, and leaves. They decompose naturally and can be composted.";
+    }
+    else if(category==="electronic"){
+        text="💻 Electronic waste includes laptops, mobile phones, chargers, batteries, and cables. They should be taken to an e-waste collection center.";
+    }
+    else if(category==="hazardous"){
+        text="⚠ Hazardous waste includes chemicals, paints, medicines, and batteries. Dispose of them carefully to avoid pollution.";
+    }
+    document.getElementById("learn-tip").innerHTML=text;
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>

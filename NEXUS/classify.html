@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Sort | Classify Waste</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <header>
+        <a class="brand" href="home.html">
+            <span>♻</span>
+            <div>
+                <div>Eco Sort</div>
+                <small style="color: var(--muted);">
+                    Waste Sorting Made Simple
+                </small>
+            </div>
+        </a>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <a href="classify.html" class="active">Classify</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="tips.html">Tips</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>Classify Waste Items</h2>
+        <p>
+            Click a waste item below or type its name to
+            identify the correct waste category.
+        </p>
+    </section>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Click Any Item</h3>
+            <p>Select an item to classify.</p>
+
+            <div class="item-list">
+
+                <button class="item-button"
+                    onclick="classifyItem('Newspaper')">
+                    Newspaper
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Banana Peel')">
+                    Banana Peel
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Laptop')">
+                    Laptop
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Paint Can')">
+                    Paint Can
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Glass Bottle')">
+                    Glass Bottle
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Garden Waste')">
+                    Garden Waste
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Plastic Bottle')">
+                    Plastic Bottle
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Plastic Bag')">
+                    Plastic Bag
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Aluminum Can')">
+                    Aluminum Can
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Coffee Cup')">
+                    Coffee Cup
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Battery')">
+                    Battery
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Broken Bulb')">
+                    Broken Bulb
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Cardboard Box')">
+                    Cardboard Box
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Tea Bag')">
+                    Tea Bag
+                </button>
+
+                <button class="item-button"
+                    onclick="classifyItem('Old Phone')">
+                    Old Phone
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Search Classification -->
+
+        <div class="card">
+            <h3>Type an Item</h3>
+            <label>Enter Waste Item</label>
+            <input
+                type="text"
+                id="searchInput"
+                class="text-input"
+                placeholder="Example: battery, bottle, laptop">
+
+            <div class="button-group">
+                <button
+                    class="button"
+                    onclick="classifyFromInput()">
+                    Classify
+                </button>
+
+                <button
+                    class="button secondary"
+                    onclick="resetResult()">
+                    Reset
+                </button>
+            </div>
+
+            <div
+                id="classificationResult"
+                class="result-box"
+                style="display:none;">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Image Upload -->
+
+    <section class="section">
+        <div class="card">
+            <h2>Image Classification</h2>
+            <p>
+                Upload an image of a waste item.
+                The demo identifies the item
+                based on its filename.
+            </p>
+            <div
+                id="uploadArea"
+                class="upload-area">
+                <div>
+                    <strong>Drop Image Here</strong>
+                    <br><br>
+                    <button
+                        id="pickFileBtn"
+                        class="button secondary">
+                        Choose Image
+                    </button>
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                        style="display:none;">
+                </div>
+
+                <div
+                    id="uploadPreview"
+                    class="upload-preview">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button
+                    id="classifyImageBtn"
+                    class="button">
+                    Classify Image
+                </button>
+
+                <button
+                    id="clearImageBtn"
+                    class="button secondary">
+                    Clear
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+    <div class="footer-content">
+        <h3>♻ Eco Sort</h3>
+        <p>
+            Learn • Segregate • Recycle • Protect Nature
+        </p>
+        <p>
+            Eco Sort helps users identify recyclable,
+            biodegradable, electronic, and hazardous waste
+            through interactive learning and quizzes.
+        </p>
+        <hr>
+        <p>
+            © 2026 Eco Sort | Waste Segregation Guide
+        </p>
+        <p>
+            Designed for Environmental Awareness Project
+        </p>
+    </div>
+</footer>
+</div>
+
+<!-- JavaScript  -->
+
+<script src="classify.js"></script>
+
+</body>
+</html>
